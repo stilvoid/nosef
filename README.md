@@ -1,4 +1,6 @@
-# nosef - A set of nice wrapper functionality for quickly building web services
+# nosef
+
+A set of nice wrapper functionality for quickly building web services
 
 ## About
 
