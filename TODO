@@ -1,0 +1,3 @@
+* Remove regex characters from urls
+* Allow use of ? in urls to make things optional, e.g. "/foo/bar/?"
+* Write better tests!
