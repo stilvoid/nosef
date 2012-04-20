@@ -1,22 +1,24 @@
-var nosef = require("nosef");
+var nosef = require("../index");
 
 var echo_handler = nosef.handler(function(request, response, params) {
     response.JSON(params);
 });
 
 var hello_handler = nosef.handler(function(request, response, params) {
-    response.end("Hello " + (params.who || "world"));
+    response.template("hello.txt", params);
 });
 
 var config = {
     port: 8765,
     urls: [
         ["/echo/{{path}}", echo_handler],
-        ["/hello/{who}", hello_handler]
+        ["/hello/{name}", hello_handler]
     ]
 };
 
 nosef.server.start(config, function() {
+    console.log("Server started");
+}, function() {
     console.log("Server stopped");
 });
 
