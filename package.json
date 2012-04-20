@@ -1,0 +1,22 @@
+{
+  "author": "Steve Engledow <steve@offend.me.uk> (http://offend.me.uk)",
+  "name": "nosef",
+  "description": "A set of nice wrapper functionality for quickly building web services",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:stilvoid/nosef.git"
+  },
+  "dependencies": {
+    "formidable": "1.0.9"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "main": "index.js"
+}
