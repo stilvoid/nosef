@@ -2,6 +2,8 @@
 
 var http = require("http");
 
+var server;
+
 function urls(url_map) {
     var i;
     var param_pattern = /\{[^\}]+\}/;
@@ -24,7 +26,7 @@ function urls(url_map) {
                 matches = path_pattern.exec(pattern);
 
                 if(matches) {
-                    param_names[j] = matches[0].replace(/^\(/, "").replace(/\)$/, "");
+                    param_names[j] = matches[0].replace(/^\{\{/, "").replace(/\}\}$/, "");
                     pattern = pattern.replace(matches[0], "(.*?)");
 
                     j++;
@@ -68,10 +70,10 @@ function urls(url_map) {
     return url_map;
 }
 
-exports.start = function(config, close_callback) {
+exports.start = function(config, start_callback, stop_callback) {
     var url_map = urls(config.urls);
 
-    var server = http.createServer(function(request, response) {
+    server = http.createServer(function(request, response) {
         var i;
 
         var matched = false;
@@ -93,12 +95,20 @@ exports.start = function(config, close_callback) {
     });
 
     server.on("close", function() {
-        if(close_callback) {
-            close_callback();
+        if(stop_callback) {
+            stop_callback();
         }
     });
 
-    server.listen(config.port || 80, config.address || "0.0.0.0");
+    server.listen(config.port || 80, config.address || "0.0.0.0", function(error) {
+        if(start_callback) {
+            start_callback(error);
+        }
+    });
+};
+
+exports.stop = function() {
+    server.close();
 };
 
 /*
