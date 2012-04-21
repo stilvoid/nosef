@@ -7,24 +7,41 @@ function make_safe(text) {
 }
 
 function flatten_object(object) {
-    var output = {},
+    var output,
         prop,
         subobject,
-        subprop;
+        subprop,
+        i;
 
-    for(prop in object) {
-        if(typeof(object[prop]) === "string" || typeof(object[prop]) === "number") {
-            output[prop] = object[prop];
-        } else if(typeof(object[prop]) === "object") {
+    if(typeof(object) === "string" || typeof(object) === "number") {
+        return object;
+    } else if(Array.isArray(object)) {
+        output = {};
+
+        for(i=0; i<object.length; i++) {
+            output[i] = object[i];
+        }
+
+        return flatten_object(output);
+    } else if(object && typeof(object) === "object") {
+        output = {};
+
+        for(prop in object) {
             subobject = flatten_object(object[prop]);
 
-            for(subprop in subobject) {
-                output[prop + "." + subprop] = subobject[subprop];
+            if(typeof(subobject) === "object") {
+                for(subprop in subobject) {
+                    output[prop + "." + subprop] = subobject[subprop];
+                }
+            } else {
+                output[prop] = object[prop];
             }
         }
+
+        return output;
     }
 
-    return output;
+    return "" + object;
 }
 
 exports.render = function(template_path, content, escape_html) {
