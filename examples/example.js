@@ -1,7 +1,12 @@
 var nosef = require("../index");
 
 var echo_handler = nosef.handler(function(request, response, params) {
-    response.JSON(params);
+    var data = {
+        params: params,
+        url: request.url
+    };
+
+    response.template("echo.txt", data);
 });
 
 var hello_handler = nosef.handler(function(request, response, params) {
