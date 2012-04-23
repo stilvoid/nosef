@@ -2,6 +2,8 @@
 
 A set of nice wrapper functionality for quickly building web services
 
+nosef requires [formidable][] which can be found via [npm](http://npmjs.org).
+
 ## About
 
 Nosef provides a couple of useful functions that wrap up some of the node http functionality and provide a simple mechanism for building web applications.
@@ -64,7 +66,7 @@ The params object looks like:
         files: {} // A map of uploaded file names to file objects
     }
 
-The file objects are created by [formidable](https://github.com/felixge/node-formidable).
+The file objects are created by [formidable][].
 
 ### Response
 
@@ -153,3 +155,5 @@ See the COPYING file for more information
     });
 
 See the examples folder for more examples
+
+[formidable]: https://github.com/felixge/node-formidable
