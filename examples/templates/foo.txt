@@ -1,0 +1,7 @@
+Foo is "{{foo}}"
+Bar:
+    Stool: {{bar.stool}}
+    Bar: {{bar.bar}}
+    Things: {{bar.things.i}} and {{bar.things.four}}
+Array:
+    {{array.0}}, {{array.1}}, and {{array.2}}

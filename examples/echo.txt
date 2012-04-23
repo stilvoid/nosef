@@ -1,2 +1,0 @@
-Params: {{ params.path }}
-Full URL: {{ url }}
