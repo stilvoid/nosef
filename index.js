@@ -1,2 +1,2 @@
-exports.handler = require("./handler");
-exports.server = require("./server");
+exports.handler = require("./lib/handler");
+exports.server = require("./lib/server");
