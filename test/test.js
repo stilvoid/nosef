@@ -11,7 +11,7 @@ var config = {
             response.JSON(params);
         })],
         ["/hello/{who}", nosef.handler(function(request, response, params) {
-            response.end("Hello " + params.who);
+            response.end("Hello " + params.url.who);
         })]
     ]
 };
@@ -24,8 +24,8 @@ var server = nosef.server.start(config, function(error) {
     util.test_url("localhost", config.port, "/path/this/is/my/path", function(data) {
         data = JSON.parse(data);
 
-        util.assert_contains(data, "path");
-        util.assert_equal(data.path, "this/is/my/path");
+        util.assert_contains(data.url, "path");
+        util.assert_equal(data.url.path, "this/is/my/path");
     });
 
     util.test_url("localhost", config.port, "/hello/world", function(data) {
