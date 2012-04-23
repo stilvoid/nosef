@@ -2,22 +2,21 @@ var http = require("http");
 
 var util = require("./util");
 
-var server = require("../server");
-var handler = require("../handler");
+var nosef = require("../");
 
 var config = {
     port: 9876,
     urls: [
-        ["/path/{{path}}", handler(function(request, response, params) {
+        ["/path/{{path}}", nosef.handler(function(request, response, params) {
             response.JSON(params);
         })],
-        ["/hello/{who}", handler(function(request, response, params) {
+        ["/hello/{who}", nosef.handler(function(request, response, params) {
             response.end("Hello " + params.who);
         })]
     ]
 };
 
-server.start(config, function(error) {
+var server = nosef.server.start(config, function(error) {
     if(error) {
         throw error;
     }
@@ -34,6 +33,6 @@ server.start(config, function(error) {
     });
 
     setTimeout(function() {
-        server.stop();
+        server.close();
     }, 1000);
 });
