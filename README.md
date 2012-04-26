@@ -99,6 +99,10 @@ Nosef includes a simple system for reading and caching template files and then m
 
 Templates are used by calling `response.template` from within a handler. Variables passed to `response.template` should be stored in an object and can be retrieved in the template using some very simple notation:
 
+Property names of the object passed in should not contains spaces.
+
+### Variables
+
 If you have a content object that looks like this:
 
     var content = {
@@ -123,6 +127,18 @@ You could use the following template to access them all:
         Things: {{bar.things.i}} and {{bar.things.four}}
     Array:
         {{array.0}}, {{array.1}}, and {{array.2}}
+
+### Conditionals
+
+There is also two very basic conditional blocks.
+
+    {% if bar.stool %}There is a bar stool!{% endif %}
+
+This checks that there is a variable called bar.stool and if so, displays the content.
+
+    {% if not bar.stool %}There is no bar stool!{% endif %}
+
+This does the opposite of 'if'.
 
 ## Copying
 
