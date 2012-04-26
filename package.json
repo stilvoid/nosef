@@ -8,6 +8,7 @@
     "type": "git",
     "url": "git@github.com:stilvoid/nosef.git"
   },
+  "homepage": "http://offend.me.uk/code/server/nosef",
   "dependencies": {
     "formidable": "1.0.9"
   },
