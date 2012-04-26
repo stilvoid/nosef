@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Template Test</title>
+    </head>
+
+    <body>
+        <h1>{{ title }}</h1>
+
+        {% if error %}
+            {% if error.message %}<p>Error: {{ error.message }}</p>{% endif %}
+        {% endif %}
+
+        {% if not pineapple %}
+            <p>There is no pineapple</p>
+        {% endif %}
+    </body>
+</html>
