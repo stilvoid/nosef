@@ -3,7 +3,7 @@
   "name": "nosef",
   "description": "A set of nice wrapper functionality for quickly building web services",
   "keywords": ["server", "wrapper", "template", "handler", "web", "service", "http"],
-  "version": "0.0.4",
+  "version": "0.0.5",
   "repository": {
     "type": "git",
     "url": "git@github.com:stilvoid/nosef.git"
