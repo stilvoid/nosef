@@ -17,9 +17,9 @@ A nosef server simply listens on the chosen address and port for HTTP requests a
 To start a server, you call `nosef.server.start`.
 
     var nosef = require("nosef");
-    var server = nosef.server.start(config, start_callback, stop_callback);
+    var server = nosef.server.start(config);
 
-`start_callback` and `stop_callback` are called when the server has started and when it stops, respectively.
+server is an instance of node's HTTP server with one additional event: "start" which is emitted when the server is started
 
 `config` is a configuration object of the following format:
 

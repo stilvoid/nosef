@@ -16,7 +16,9 @@ var config = {
     ]
 };
 
-var server = nosef.server.start(config, function(error) {
+var server = nosef.server.start(config);
+
+server.on("start", function(error) {
     if(error) {
         throw error;
     }
