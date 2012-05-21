@@ -10,6 +10,9 @@ var hello_handler = nosef.handler(function(request, response, params) {
 
 var config = {
     port: 8765,
+    middleware: function(request, response) {
+        console.log("URL: ", request.url);
+    },
     urls: [
         ["/echo/{{path}}", echo_handler],
         ["/hello/{who}", hello_handler]

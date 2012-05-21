@@ -25,12 +25,17 @@ server is an instance of node's HTTP server with one additional event: "start" w
 
     var config = {
         port: 8000, // Default: 80
-        address: "127.0.0.1", // Default: "0.0.0.0"
+        address: "127.0.0.1", // Default: "0.0.0.0",
+        middleware: function(request, response) {
+            console.log(request.url);
+        },
         urls: [ // An array of arrays mapping URL patterns to handler functions
             ["/echo/{{path}}", echo_handler],
             ["/hello/{name}", hello_handler]
         ]
     };
+
+`middleware` is a function (or an array of functions) that take a `request` and a `response` object and can act upon them for every request even if there is no URL match. Examples of use could be logging, CSRF verification, authentication etc.
 
 URL patterns are strings with optional variables that match against the path requested by a client. e.g. If you visit `http://127.0.0.1:8000/echo/and/the/bunnymen/` in a browser, the path would be `/echo/and/the/bunnymen`.
 
