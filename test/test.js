@@ -12,7 +12,8 @@ var config = {
         })],
         ["/hello/{who}", nosef.handler(function(request, response, params) {
             response.end("Hello " + params.url.who);
-        })]
+        })],
+        ["/file/{{path}}", nosef.file_handler("./", "path")]
     ]
 };
 
@@ -32,6 +33,10 @@ server.on("start", function(error) {
 
     util.test_url("localhost", config.port, "/hello/world", function(data) {
         util.assert_equal(data, "Hello world");
+    });
+
+    util.test_url("localhost", config.port, "/file/test.txt", function(data) {
+        util.assert_equal(data, "Hello, world!\n");
     });
 
     setTimeout(function() {
