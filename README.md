@@ -98,6 +98,16 @@ The extensions to the response object are:
 * response.redirect(redirect_url, permanent)
     * Sends an HTTP 302 (301 if `permanent` is true) to redirect the client to `redirect_url`
 
+### File Handler
+
+Additionally, there is a convenience function called `file_handler` which constructs a handler for you that simply serves files from a directory you specify based on a url parameter you specify. For example:
+
+var config = {
+    urls: [
+        ["/media/{{path}}", nosef.file_handler("./my_media_folder", "path")]
+    ]
+};
+
 ## Templates
 
 Nosef includes a simple system for reading and caching template files and then merging data into them before sending the result out to the client.
