@@ -1,6 +1,6 @@
-var handlers = require("./lib/handlers");
-
-exports.handler = handlers.handler;
-exports.file_handler = handlers.file_handler;
-
+// Server
 exports.server = require("./lib/server");
+
+// Handlers
+exports.handlers = require("./lib/handlers");
+exports.handler = exports.handlers.handler;
