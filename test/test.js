@@ -13,7 +13,7 @@ var config = {
         ["/hello/{who}", nosef.handler(function(request, response, params) {
             response.end("Hello " + params.url.who);
         })],
-        ["/file/{{path}}", nosef.file_handler("./", "path")]
+        ["/file/{{path}}", nosef.handlers.file("./", "path")]
     ]
 };
 

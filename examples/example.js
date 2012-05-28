@@ -16,7 +16,7 @@ var config = {
     urls: [
         ["/echo/{{path}}", echo_handler],
         ["/hello/{who}", hello_handler],
-        ["/file/{{path}}", nosef.file_handler("./", "path")]
+        ["/file/{{path}}", nosef.handlers.file("./", "path")]
     ]
 };
 

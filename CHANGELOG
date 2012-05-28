@@ -1,3 +1,12 @@
+2012-05-28:
+* Restructure convenience handlers so they live under nosef.handlers
+* Add redirection handler
+* Add ability for file handler to serve a single static file
+
+2012-05-27:
+* Add nosef.file_handler to deal with basic file serving
+* Rename nosef.server.start to just nosef.server
+
 2012-05-21:
 * Use events to run callbacks for start and stop rather than passing them in to server.start
 * Add basic support for middleware

@@ -98,15 +98,29 @@ The extensions to the response object are:
 * response.redirect(redirect_url, permanent)
     * Sends an HTTP 302 (301 if `permanent` is true) to redirect the client to `redirect_url`
 
-### File Handler
+### Convenience Handlers
 
-Additionally, there is a convenience function called `file_handler` which constructs a handler for you that simply serves files from a directory you specify based on a url parameter you specify. For example:
+Additionally, there are a couple of functions in nosef.handlers which serve as a convenience to quickly create handlers to do simple things. For example:
 
-var config = {
-    urls: [
-        ["/media/{{path}}", nosef.file_handler("./my_media_folder", "path")]
-    ]
-};
+    nosef.handlers.file("./media_folder", "path")
+
+This will map a URL parameter called `path` (specify it in the URL pattern such as `/media/{{path}}`) and serve files from the local folder `./media_folder`.
+
+    nosef.handlers.file("./robots.txt")
+
+This will simply serve the contents of the file `robots.txt` to the URL it is bound to.
+
+    nosef.handlers.redirect("http://github.com", true);
+
+This will redirect the client to `http://github.com`. The second parameter indicates whether the redirect is permanent or temporary; `true` for permanent.
+
+You can use these convenience handlers in the place of a normal handler. For example:
+
+    var config = {
+        urls: [
+            ["/media/{{ path }}", nosef.handlers.file("./media_folder", "path")]
+        ]
+    };
 
 ## Templates
 
