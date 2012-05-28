@@ -2,7 +2,7 @@
 
 A set of nice wrapper functionality for quickly building web services
 
-nosef requires [formidable][] which can be found via [npm](http://npmjs.org).
+nosef requires [formidable][] and [mime][] which can be found via [npm](http://npmjs.org).
 
 ## About
 
@@ -188,3 +188,4 @@ See the COPYING file for more information
 See the examples folder for more examples
 
 [formidable]: https://github.com/felixge/node-formidable
+[mime]: https://github.com/bentomas/node-mime
