@@ -14,10 +14,10 @@ There are three main features:
 
 A nosef server simply listens on the chosen address and port for HTTP requests and calls handler functions based on URL patterns
 
-To start a server, you call `nosef.server.start`.
+To start a server, you call `nosef.server`, passing in a configuration object.
 
     var nosef = require("nosef");
-    var server = nosef.server.start(config);
+    var server = nosef.server(config);
 
 server is an instance of node's HTTP server with one additional event: "start" which is emitted when the server is started
 
@@ -179,7 +179,7 @@ See the COPYING file for more information
         ]
     };
 
-    nosef.server.start(config, function() {
+    nosef.server(config, function() {
         console.log("Server started");
     }, function() {
         console.log("Server stopped");

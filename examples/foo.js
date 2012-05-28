@@ -24,7 +24,7 @@ var config = {
     ]
 };
 
-var server = nosef.server.start(config);
+var server = nosef.server(config);
 
 server.on("start", function() {
     console.log("Server started");
