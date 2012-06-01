@@ -1,9 +1,9 @@
 {
   "author": "Steve Engledow <steve@offend.me.uk> (http://offend.me.uk)",
   "name": "nosef",
-  "description": "A set of nice wrapper functionality for quickly building web services",
-  "keywords": ["server", "wrapper", "template", "handler", "web", "service", "http"],
-  "version": "0.0.10",
+  "description": "Node server framework for rapidly developing web sites, services, and APIs.",
+  "keywords": ["server", "wrapper", "template", "handler", "web", "service", "http", "site", "api"],
+  "version": "0.1.0",
   "repository": {
     "type": "git",
     "url": "git@github.com:stilvoid/nosef.git"

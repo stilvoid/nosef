@@ -1,6 +1,6 @@
 var nosef = require("../");
 
-var bar_handler = nosef.handler(function(request, response, params) {
+function bar_handler(request, response, params) {
     var content = {
         foo: "This is foo",
         bar: {
@@ -15,7 +15,7 @@ var bar_handler = nosef.handler(function(request, response, params) {
     };
 
     response.file_template("templates/foo.txt", content, "text/plain");
-});
+}
 
 var config = {
     port: 8765,

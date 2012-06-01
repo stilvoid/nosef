@@ -1,3 +1,6 @@
+2012-06-01:
+* Handler are now just functions and shouldn't be wrapped in nosef.handler
+
 2012-05-28:
 * Restructure convenience handlers so they live under nosef.handlers
 * Add redirection handler

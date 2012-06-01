@@ -4,6 +4,8 @@ A set of nice wrapper functionality for quickly building web services
 
 nosef requires [formidable][] and [mime][] which can be found via [npm](http://npmjs.org).
 
+See CHANGELOG for recent changes.
+
 ## About
 
 Nosef provides a couple of useful functions that wrap up some of the node http functionality and provide a simple mechanism for building web applications.
@@ -51,13 +53,11 @@ Variables in URL patterns can take two forms:
 
 ## Handlers
 
-A handler is a function that takes a request, a response, and a parameters object as it's arguments. Nosef adds some convenience functions to the response object and parses GET, POST, and file upload data into the parameters object to save on the gruntwork.
+A handler is a function that takes a `request`, a `response`, and a `parameters` object as it's arguments. Nosef adds some convenience functions to the response object and parses GET, POST, and file upload data into the parameters object to save on the gruntwork.
 
-To create a handler, pass a function into `nosef.handler`.
-
-    var echo_handler = nosef.handler(function(request, response, params) {
+    function echo_handler(request, response, params) {
         response.write(params.path);
-    });
+    };
 
 ### Params
 
@@ -177,13 +177,13 @@ See the COPYING file for more information
 
     var nosef = require("nosef");
 
-    var echo_handler = nosef.handler(function(request, response, params) {
+    function echo_handler(request, response, params) {
         response.JSON(params);
-    });
+    }
 
-    var hello_handler = nosef.handler(function(request, response, params) {
+    function hello_handler(request, response, params) {
         response.template("Hello {{who}}", params.url, "text/plain");
-    });
+    }
 
     var config = {
         port: 8765,

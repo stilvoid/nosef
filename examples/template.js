@@ -1,6 +1,6 @@
 var nosef = require("../");
 
-var template_handler = nosef.handler(function(request, response, params) {
+function template_handler(request, response, params) {
     var content = {
         title: "Template test",
         error: {
@@ -9,7 +9,7 @@ var template_handler = nosef.handler(function(request, response, params) {
     };
 
     response.file_template("templates/template.html", content);
-});
+}
 
 var config = {
     port: 8765,

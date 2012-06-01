@@ -7,12 +7,12 @@ var nosef = require("../");
 var config = {
     port: 9876,
     urls: [
-        ["/path/{{path}}", nosef.handler(function(request, response, params) {
+        ["/path/{{path}}", function(request, response, params) {
             response.JSON(params);
-        })],
-        ["/hello/{who}", nosef.handler(function(request, response, params) {
+        }],
+        ["/hello/{who}", function(request, response, params) {
             response.end("Hello " + params.url.who);
-        })],
+        }],
         ["/file/{{path}}", nosef.handlers.file("./", "path")]
     ]
 };

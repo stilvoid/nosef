@@ -1,12 +1,12 @@
 var nosef = require("../");
 
-var echo_handler = nosef.handler(function(request, response, params) {
+function echo_handler(request, response, params) {
     response.JSON(params);
-});
+}
 
-var hello_handler = nosef.handler(function(request, response, params) {
+function hello_handler(request, response, params) {
     response.template("Hello {{who}}", params.url, "text/plain");
-});
+}
 
 var config = {
     port: 8765,
