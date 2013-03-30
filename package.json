@@ -3,7 +3,7 @@
   "name": "nosef",
   "description": "Node server framework for rapidly developing web sites, services, and APIs.",
   "keywords": ["server", "wrapper", "template", "handler", "web", "service", "http", "site", "api"],
-  "version": "0.1.0",
+  "version": "0.1.2",
   "repository": {
     "type": "git",
     "url": "git@github.com:stilvoid/nosef.git"
