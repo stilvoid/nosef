@@ -37,5 +37,6 @@
     "example": "examples",
     "test": "test"
   },
-  "license": "BSD"
+  "license": "BSD",
+  "gitHead": "5804a7c74927ea5fc6c27b02381ae008ae5632b6"
 }
